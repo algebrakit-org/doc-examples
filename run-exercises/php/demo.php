@@ -1,5 +1,5 @@
 <!--
-This is the minimal code required to run AlgebraKiT exercises. It contains 
+This is example code to run AlgebraKiT exercises. It contains 
 both the backend part (creating a session from an exercise-id) and
 the frontend part (inserting the akit-exercise tags).
 

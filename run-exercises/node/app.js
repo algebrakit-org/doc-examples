@@ -13,7 +13,8 @@
 const express = require('express');
 const request = require('request');
 
-const apiKey = process.env.AKIT_API_KEY; //The API key that you created in the management console
+const apiKey = '...'; // enter the API KEY here
+ 
 const host = 'https://algebrakit.eu';   //the domain of AlgebraKiT's web service
 const endpoint = '/session/create';         //see https://algebrakit-learning.com/dev/api-web-create
 
