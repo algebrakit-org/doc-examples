@@ -3,6 +3,9 @@ This code demonstrates how to use AlgebraKiT's authoring component in your own s
 
 This demo requires NodeJS.
 - npm install
-- node server.js  
+- set the API KEY in server.js
+- In your console: 
+    - cd into folder doc-examples/authoring
+    - type: node server.js  
 - navigate your browser to localhost:3015
 
