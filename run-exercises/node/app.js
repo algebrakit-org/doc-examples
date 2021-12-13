@@ -15,7 +15,7 @@ const request = require('request');
 
 const apiKey = '...'; // enter the API KEY here
  
-const host = 'https://algebrakit.eu';   //the domain of AlgebraKiT's web service
+const host = 'https://api.algebrakit.com';   //the domain of AlgebraKiT's web service
 const endpoint = '/session/create';         //see https://algebrakit-learning.com/dev/api-web-create
 
 const data = {
