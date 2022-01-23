@@ -16,7 +16,7 @@ Three AlgebraKiT exercise sessions should be created for you and will appear in 
     //Backend part: create a session for one or more exercises based on exercise id(s).
     $apiKey     = '...';            //The API key that you created in the management console
     
-    $host      = 'https://algebrakit.eu';   //the domain of AlgebraKiT's web service
+    $host      = 'https://api.algebrakit.com';   //the domain of AlgebraKiT's web service
     $endpoint  = '/session/create';         //see https://algebrakit-learning.com/dev/api-web-create
 
     $data = array(
@@ -79,7 +79,7 @@ Three AlgebraKiT exercise sessions should be created for you and will appear in 
         </script>
         
         <!--- Load frontend API (stored in window.AlgebraKIT) -->
-        <script src='https://widgets.algebrakit.eu/akit-widgets.min.js'></script>
+        <script src='https://widgets.algebrakit.com/akit-widgets.min.js'></script>
 
         <!-- now you can use the frontend API, e.g. to listen to learning events -->
         <script>
