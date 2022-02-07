@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="exercise-editor.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- This is the authoring component -->
+        <akit-exercise-editor 
+            audiences='[ {"name": "Nederlands", "id":"vwo-b"}, {"name": "Engels", "id": "uk_KS5"}]' 
+            enable-multiple-questions="false"
+            enable-preview="false"
+            enable-basic-info="false"
+            enable-id-field="false">
+        </akit-exercise-editor>
+
+        <button onClick="showSpec()">Show Specification</button>
+        <button onClick="run()">Test exercise</button>
+
+        <div id="test-container">
+            <!-- test exercise will be inserted here -->
+        </div>
+
+        <!--- Global object AlgebraKIT will be the front end API of AlgebraKiT and is used for configuration -->
+        <script>
+            AlgebraKIT = {
+                config: {
+                    secureProxy: '/algebrakit-secure',
+                    // proxy: '/algebrakit',
+                    // theme: '...'   //themes configure behaviour and design of frontend widgets
+                }
+            }
+        </script>
+
+        <!--- Load frontend API (stored in window.AlgebraKIT) -->
+        <script src="https://widgets.algebrakit.com/akit-widgets.min.js"></script>
+        <script src="exercise-editor.js"></script>
+
+    </body>
+</html>

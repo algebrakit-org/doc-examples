@@ -6,8 +6,7 @@ const app = express();
 const port = Number(process.env.PORT || 3015);
 
 const API_KEY = '...'; //The API key that you received from AlgebraKiT or created in the management console
-
-const TARGET = 'https://algebrakit.eu';
+const TARGET = 'https://api.algebrakit.com';
 
 //This proxy adds the api key header to access the secure AlgebraKiT API
 var proxySecure = createProxyMiddleware({
@@ -22,10 +21,9 @@ var proxySecure = createProxyMiddleware({
 });
 
 app.use('/algebrakit-secure', proxySecure);
-
-app.use('/*', function(req, res) {
-    res.status(200).sendFile('/exercise-editor.html', {root: __dirname});
-})
+app.use(express.static('.', {
+    index: 'exercise-editor.html'
+}));
 
 app.listen(port, function() {
   console.log(`Listening at ${port}`);

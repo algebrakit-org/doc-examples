@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="interaction-editor.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div id="editor-container">
+            <!-- interaction editor will be inserted here -->
+        </div>
+
+        <div class="button-container">
+            <button type="button" onClick="run()">Test exercise</button>
+        </div>
+
+        <div id="test-container">
+            <!-- test interaction will be inserted here -->
+        </div>
+
+
+
+        <!--- Global object AlgebraKIT will be the front end API of AlgebraKiT and is used for configuration -->
+        <script>
+            AlgebraKIT = {
+                config: {
+                    secureProxy: '/algebrakit-secure',
+                    // proxy: '/algebrakit',
+                    // theme: '...'   //themes configure behaviour and design of frontend widgets
+                    // styles: {...}
+                }
+            }
+        </script>
+
+        <!--- Load frontend API (stored in window.AlgebraKIT) -->
+        <script src="https://widgets.algebrakit.com/akit-widgets.min.js"></script>
+        <script src="interaction-editor.js"></script>
+    </body>
+</html>
