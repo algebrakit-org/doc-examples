@@ -1,7 +1,7 @@
 let authoringComponent;
 
 // optional: push an existing exercise definition to the authoring component
-const SPEC = {"audience":"uk_KS5","course":"89dc0678-35d1-43c9-bfb5-7c46a1fa5cb2","definition":{"type":"EXERCISE","audience":"uk_KS5","questionMode":"ALL_AT_ONCE","elements":[{"type":"QUESTION","mathRendering":"PREPROCESSED","id":"Q1","content":"<div data-ref-id=\"Tk4yE\" data-ref-name=\"Block 1\">Simplify `$$$x\\left(x+1\\right)-x^{2}$$`</div>","instructionType":"SCRIPT","resources":[],"interactions":[{"showHints":true,"palette":"equations","id":"TC3WO","name":"I1","ans":{"action":"CALCULATE","id":"$$\\verb|solution|$$","type":"ALGEBRA","defs":[{"def":"$$x\\left(x+1\\right)-x^{2}$$","score":1,"marks":0,"preconds":[],"decimals":-1}],"evalMode":"EQUIVALENT","hidden":false,"parameter":null,"buggyDefs":[],"alternatives":[],"answers":[],"accuracyMode":"EXACT","accuracyEnabled":null,"targetUnitConvert":true},"extendedInline":false,"contextHints":[],"steps":[]}]}],"exerciseContext":{"properties":{"x":[{"name":"x","type":"VARIABLE","latex":"x","args":null}]}}},"id":"b6c55633-96ca-4aa4-af39-74a572037920","majorVersion":0,"minorVersion":0,"type":"SPECIFICATION","subjectId":"e7c31b28-326a-4447-860b-78ffbb698d98"};
+const SPEC = null;
 
 main();
 
@@ -28,6 +28,10 @@ async function run() {
         exercises: [{
             exerciseSpec: spec
         }],
+        options: {
+            // let AlgebraKIT automatically infer symbol types (e.g. 'km' is a unit, 'x' is a variable)
+            generateDebugInfo: true
+        },
         'api-version': 2
     }).then(resp => {
         let outputElm = document.getElementById('test-container');
@@ -36,7 +40,15 @@ async function run() {
             if(session.success) {
                 //the given html is optimized such that no roundtrips to the server are required
                 outputElm.innerHTML = session.html;
+                
+                if(session.debugInformation) {
+                    //AlgebraKiT generated information to help authoring. E.g. automatically set symbol types.
+                    //Communicate this information to the authoring component.
+                    authoringComponent.setDebugInfo(session.debugInformation);
+                }
             } else if(session.errorData) {
+                // the exercise contains some authoring error. Communicate the error data to the authoring 
+                // component such that a meaningful error message can be shown.
                 authoringComponent.setErrorData({
                     msg: session.msg,
                     data: session.errorData
