@@ -1,0 +1,25 @@
+{
+  "name": "akit-example-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -r dist; tsc; npm run copy-views",
+    "copy-views": "cp -R src/views dist/views",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "Algebrakit",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^22.15.17",
+    "axios": "^1.9.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2"
+  }
+}

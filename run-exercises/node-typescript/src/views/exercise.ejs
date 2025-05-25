@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        AlgebraKiT NodeJS Demo
+    </title>
+</head>
+
+<body class="container">
+
+    <h1>AlgebraKiT NodeJS Demo</h1>
+
+    <div>
+
+        <akit-exercise session-id='<%= session.sessionId %>'></akit-exercise>
+
+    </div>
+    <a href="/score/<%= session.sessionId %>">View Score</a>
+
+    <!--- Global object AlgebraKIT will be the front end API of AlgebraKiT and is used for configuration -->
+    <script>
+        AlgebraKIT = {
+            config: {
+                //theme: '..',  //themes configure behaviour and design of frontend widgets
+            }
+        };
+    </script>
+
+    <!--- Load frontend API (stored in window.AlgebraKIT) -->
+    <script src='https://widgets.algebrakit.com/akit-widgets.min.js'></script>
+
+    <!-- now you can use the frontend API, e.g. to listen to learning events -->
+    <script>
+        AlgebraKIT.addExerciseListener(function (data) {
+            console.log(data);
+        })
+    </script>
+
+</body>
+
+</html>
